@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenuScene.unity
+    guid: 8c16ff1bc02397d41830a8a036edcdf4
+  - enabled: 1
+    path: Assets/Scenes/WaterBubblesMinigame.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/BubblegumScene.unity
+    guid: cb8e34649d32760489b1780044c3ade8
   m_configObjects: {}

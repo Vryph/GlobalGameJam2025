@@ -6,6 +6,7 @@ public class VirtualMouseUI : MonoBehaviour
 {
     [SerializeField] private RectTransform _canvasRectTransform;
     public Vector2 virtualMousePosition;
+    public int id = 0;
 
     private VirtualMouseInput _virtualMouseInput;
     private float _edgeOffset = 15f;
@@ -13,6 +14,12 @@ public class VirtualMouseUI : MonoBehaviour
     private void Awake()
     {
         _virtualMouseInput = GetComponent<VirtualMouseInput>();
+    }
+
+    private void Start()
+    {
+        if (id == 1) { InputState.Change(_virtualMouseInput.virtualMouse.position, new Vector2(812, 50), InputUpdateType.Default); }
+        else { InputState.Change(_virtualMouseInput.virtualMouse.position, new Vector2(60, 50));}
     }
 
     private void Update()

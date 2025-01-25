@@ -10,6 +10,7 @@ public class MinigameManager : MonoBehaviour
     [SerializeField] public GameValues gameValues;
     private int _minigameDifficulty;
     private float _totalTime;
+    private bool _isOngoing = true;
     public float _currentTime;
     [SerializeField] TextMeshProUGUI _timerText;
 
@@ -27,19 +28,16 @@ public class MinigameManager : MonoBehaviour
 
     private void Update()
     {
-
-        _currentTime -= Time.deltaTime;
-        if (Input.anyKeyDown)
+        if (_isOngoing)
         {
-            MinigameWin();
+            _currentTime -= Time.deltaTime;
         }
+        SetTimer();
 
-        if(_currentTime <= 0)
+        if (_currentTime <= 0)
         {
             MinigameLoss();
-        }
-
-        SetTimer();
+        } 
     }
 
     public void MinigameLoss()
@@ -52,6 +50,8 @@ public class MinigameManager : MonoBehaviour
         gameValues.CompletedMinigames++;
         gameValues.LastMinigame = gameValues.CurrentMinigame;
         gameValues.CurrentMinigame = SelectNextMinigame();
+        DifficultyUpdate();
+        
     }
 
     private void DifficultyUpdate()
@@ -80,7 +80,7 @@ public class MinigameManager : MonoBehaviour
 
     private int RollMinigame()
     {
-        return Random.Range(0, gameValues.TotalExistingMinigames);
+        return Random.Range(1, gameValues.TotalExistingMinigames + 1);
     }
 
     private void SetTimer()
@@ -90,7 +90,7 @@ public class MinigameManager : MonoBehaviour
             int seconds = Mathf.FloorToInt(_currentTime % 60);
             int milliseconds = Mathf.FloorToInt((_currentTime % 1) * 100);
             string tempString = string.Format("{0:00}.{1:00}", seconds, milliseconds);
-            _timerText.text = $"Remaining Time: {tempString}s \n";
+            _timerText.text = $"{tempString}s \n";
         }
     }
 }

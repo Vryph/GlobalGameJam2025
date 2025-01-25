@@ -6,7 +6,8 @@ using UnityEngine;
 public class Bubble : MonoBehaviour
 {
     [SerializeField] public BubbleManager manager;
-    [SerializeField] public VirtualMouseUI _mouseCursorUI;
+    [SerializeField] public VirtualMouseUI _mouseCursorUI1;
+    [SerializeField] public VirtualMouseUI _mouseCursorUI2;
     private Vector2 _screenPosition;
 
 
@@ -16,8 +17,9 @@ public class Bubble : MonoBehaviour
     }
     private void Update()
     {
-        Vector2 difference = _screenPosition - _mouseCursorUI.virtualMousePosition;
-        if (Math.Abs(difference.x) <= 20 && Math.Abs(difference.y) <= 20)
+        Vector2 difference1 = _screenPosition - _mouseCursorUI1.virtualMousePosition;
+        Vector2 difference2 = _screenPosition - _mouseCursorUI2.virtualMousePosition;
+        if ((Math.Abs(difference1.x) <= 20 && Math.Abs(difference1.y) <= 20) || (Math.Abs(difference2.x) <= 20 && Math.Abs(difference2.y) <= 20))
         {  
             Pop();
         }

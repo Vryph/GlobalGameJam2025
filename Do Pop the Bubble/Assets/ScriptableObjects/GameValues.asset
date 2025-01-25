@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1903e8141baad2b43a6c7fe77038bf1d, type: 3}
   m_Name: GameValues
   m_EditorClassIdentifier: 
-  CompletedMinigames: 5
+  CompletedMinigames: 0
   CurrentDifficulty: 1
   CurrentMinigame: 0
-  LastMinigame: 4
+  LastMinigame: 0
+  DoPop: 1
   LastDifficultyIncrease: 0
-  TotalExistingMinigames: 5
+  TotalExistingMinigames: 2
