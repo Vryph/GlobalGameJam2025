@@ -5,6 +5,8 @@ using UnityEngine.InputSystem.UI;
 public class VirtualMouseUI : MonoBehaviour
 {
     [SerializeField] private RectTransform _canvasRectTransform;
+    public Vector2 virtualMousePosition;
+
     private VirtualMouseInput _virtualMouseInput;
     private float _edgeOffset = 15f;
 
@@ -21,7 +23,7 @@ public class VirtualMouseUI : MonoBehaviour
     }
     private void LateUpdate()
     {
-        Vector2 virtualMousePosition = _virtualMouseInput.virtualMouse.position.value;
+        virtualMousePosition = _virtualMouseInput.virtualMouse.position.value;
         virtualMousePosition.x = Mathf.Clamp(virtualMousePosition.x, 0f + _edgeOffset, Screen.width - _edgeOffset);
         virtualMousePosition.y = Mathf.Clamp(virtualMousePosition.y, 0f + _edgeOffset, Screen.height - _edgeOffset);
         InputState.Change(_virtualMouseInput.virtualMouse.position, virtualMousePosition);

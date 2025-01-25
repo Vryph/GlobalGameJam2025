@@ -201,6 +201,7 @@ GameObject:
   m_Component:
   - component: {fileID: 623979432}
   - component: {fileID: 623979431}
+  - component: {fileID: 623979433}
   m_Layer: 0
   m_Name: MinigameManager
   m_TagString: Untagged
@@ -242,6 +243,50 @@ Transform:
   - {fileID: 1359077650}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &623979433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 623979430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NotificationBehavior: 0
+  m_MaxPlayerCount: 2
+  m_AllowJoining: 0
+  m_JoinBehavior: 1
+  m_PlayerJoinedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_PlayerLeftEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_JoinAction:
+    m_UseReference: 0
+    m_Action:
+      m_Name: Join
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 700103bf-624f-4829-a070-ebf892b7e175
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 0}
+  m_PlayerPrefab: {fileID: 4916241444697969984, guid: b34ccd84ebaa0314eb7ea7e2ea4c48a2, type: 3}
+  m_SplitScreen: 0
+  m_MaintainAspectRatioInSplitScreen: 0
+  m_FixedNumberOfSplitScreens: -1
+  m_SplitScreenRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +623,7 @@ MonoBehaviour:
   _gameValues: {fileID: 11400000, guid: cebd1e8f7fb2ed14c8faa9e6e14a933c, type: 2}
   _manager: {fileID: 623979431}
   _bubblePrefab: {fileID: 5856398468394211579, guid: 4120bad09ea3d5545b79475b1185eac9, type: 3}
+  _mouseCursorUI: {fileID: 2071508369}
   _currentBubbles: 0
 --- !u!1 &1865279845
 GameObject:
@@ -833,6 +879,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3271157767029598175, guid: b34ccd84ebaa0314eb7ea7e2ea4c48a2, type: 3}
   m_PrefabInstance: {fileID: 2071508367}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2071508369 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3491018780524310299, guid: b34ccd84ebaa0314eb7ea7e2ea4c48a2, type: 3}
+  m_PrefabInstance: {fileID: 2071508367}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93a27747728236a49b3a21e8f719dd51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

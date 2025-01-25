@@ -56,7 +56,7 @@ MonoBehaviour:
   m_CursorSpeed: 1000
   m_ScrollSpeed: 45
   m_StickAction:
-    m_UseReference: 0
+    m_UseReference: 1
     m_Action:
       m_Name: Stick
       m_Type: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _canvasRectTransform: {fileID: 0}
+  virtualMousePosition: {x: 0, y: 0}
 --- !u!1 &5238013041302891415
 GameObject:
   m_ObjectHideFlags: 0

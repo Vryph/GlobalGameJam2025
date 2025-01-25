@@ -7,7 +7,8 @@ public class BubbleManager : MonoBehaviour
 {
     [SerializeField] private GameValues _gameValues;
     [SerializeField] private MinigameManager _manager;
-    [SerializeField] private GameObject _bubblePrefab;
+    [SerializeField] private GameObject _bubblePrefab; 
+    [SerializeField] private VirtualMouseUI _mouseCursorUI;
     private int _totalBubbles;
     private float MinX = -9.5f, MaxX = 9.5f, MinY = -4, MaxY = 6;
     public int _currentBubbles;
@@ -27,6 +28,7 @@ public class BubbleManager : MonoBehaviour
             Vector3 position = new Vector3(Random.Range(MinX, MaxX), Random.Range(MinY, MaxY), 0);
             GameObject bubble = Instantiate(_bubblePrefab, position, Quaternion.identity);
             bubble.GetComponent<Bubble>().manager = this;
+            bubble.GetComponent<Bubble>()._mouseCursorUI = _mouseCursorUI;
             _bubbles[i] = bubble;
             _currentBubbles++;
         }
