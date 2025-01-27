@@ -4,6 +4,7 @@ using TMPro;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MinigameManager : MonoBehaviour
 {
@@ -13,13 +14,21 @@ public class MinigameManager : MonoBehaviour
     private bool _isOngoing = true;
     public float _currentTime;
     [SerializeField] TextMeshProUGUI _timerText;
+    [SerializeField] public AudioSource TickSound;
+    [SerializeField] public AudioSource WinGame;
+    [SerializeField] public AudioSource GameOver;
 
     [SerializeField] private float _timePerDifficulty = 1f;
-    [SerializeField] private float _baseTime = 7f;
+    [SerializeField] private float _baseTime = 21f;
     [SerializeField] private int _minLevelsForDifficultyIncrease = 3;
 
 
-    private void Start()
+    private void Awake()
+    {
+        ResetTimer();
+    }
+
+    private void ResetTimer()
     {
         _minigameDifficulty = gameValues.CurrentDifficulty;
         _totalTime = _baseTime - (_minigameDifficulty * _timePerDifficulty);
@@ -36,22 +45,32 @@ public class MinigameManager : MonoBehaviour
 
         if (_currentTime <= 0)
         {
+            PlayGameOver();
             MinigameLoss();
-        } 
+        }
+       /* if (_currentTime <= 1.5f)
+        {
+            PlayTickSound();
+        } */
     }
 
     public void MinigameLoss()
     {
-        return;
+        gameValues.CurrentDifficulty = 1;
+        gameValues.LastDifficultyIncrease = 0;
+        gameValues.CompletedMinigames = 0;
+
+        SceneManager.LoadScene("menu");
     }
 
     public void MinigameWin()
     {
         gameValues.CompletedMinigames++;
         gameValues.LastMinigame = gameValues.CurrentMinigame;
-        gameValues.CurrentMinigame = SelectNextMinigame();
         DifficultyUpdate();
-        
+        PlayGameWin();
+        ResetTimer();
+
     }
 
     private void DifficultyUpdate()
@@ -92,5 +111,32 @@ public class MinigameManager : MonoBehaviour
             string tempString = string.Format("{0:00}.{1:00}", seconds, milliseconds);
             _timerText.text = $"{tempString}s \n";
         }
+    }
+
+    private void PlayTickSound()
+    {
+        if (TickSound != null)
+        {
+            TickSound.Play();
+        }
+        return;
+    }
+
+    private void PlayGameWin()
+    {
+        if (WinGame != null)
+        {
+            WinGame.Play();
+        }
+        return;
+    }
+
+    private void PlayGameOver()
+    {
+        if (GameOver != null)
+        {
+            GameOver.Play();
+        }
+        return;
     }
 }

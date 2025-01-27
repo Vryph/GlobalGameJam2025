@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CompletedMinigames: 0
   CurrentDifficulty: 1
-  CurrentMinigame: 0
-  LastMinigame: 0
+  CurrentMinigame: 1
+  LastMinigame: 1
   DoPop: 1
   LastDifficultyIncrease: 0
   TotalExistingMinigames: 2
